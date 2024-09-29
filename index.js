@@ -53,6 +53,7 @@ app.get('/api/paths/dates', async (req, res) => {
   try {
     const paths = await Path.find({}, 'date');
     const dates = paths.map(path => path.date);
+    console.log("Stored Dates:", dates);
     res.status(200).json(dates);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch dates' });
